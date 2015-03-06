@@ -8,6 +8,16 @@ namespace Simplr.OpenGraph.Helpers
 {
     public static class OGHelper
     {
+        private static string SetMetaProperties(IList<OGKeyValue> data)
+        {
+            string result = null;
+            foreach (var item in data)
+            {
+                result += string.Format("<meta property=\"og:{0}\" content=\"{1}\" />", item.Name, item.Content);
+            }
+            return result;
+        }
+
         private static IList<OGKeyValue> ExtractKeyValueFromProperties(IEnumerable<PropertyInfo> properties, object valueObject, string originalName)
         {
             var result = new List<OGKeyValue>();
