@@ -132,7 +132,7 @@ namespace Simplr.OpenGraph.Helpers
                         result.Add(new OGKeyValue()
                         {
                             Name = name.ToLower(),
-                            Content = AddDotInsteadOfUnderscoreAndAddUnderscoreBeforeUpperCase(value.ToString())
+                            Content = ChangeText(value.ToString())
                         });
                         continue;
                     }
@@ -220,9 +220,14 @@ namespace Simplr.OpenGraph.Helpers
             return result;
         }
 
-        public static string AddDotInsteadOfUnderscoreAndAddUnderscoreBeforeUpperCase(string enumValue)
+        /// <summary>
+        /// Add dot instead of underscore and add underscore before UpperCase
+        /// </summary>
+        /// <param name="text">Text which have to be changed</param>
+        /// <returns>Changed string</returns>
+        public static string ChangeText(string text)
         {
-            var changeUnderscoreToDot = enumValue.AddDotInsteadOfUnderscore();
+            var changeUnderscoreToDot = text.AddDotInsteadOfUnderscore();
             var addUnderscoreBeforeUpperCase = changeUnderscoreToDot.AddSymbolBeforeUpperCase('_');
             return addUnderscoreBeforeUpperCase.ToLower();
         }
