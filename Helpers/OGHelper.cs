@@ -3,6 +3,7 @@ using Simplr.OpenGraph.Enums;
 using Simplr.OpenGraph.Models;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -10,6 +11,27 @@ namespace Simplr.OpenGraph.Helpers
 {
     public static class OGHelper
     {
+        private static IList<OGKeyValue> ReplaceValue<T>(OGMetadata metadata, IOGType<T> objectClass, string name = "type")
+        {
+            var result = new List<OGKeyValue>();
+
+            var metadataKeyValue = GetKeyValue(metadata);
+            var objectClassKeyValue = GetKeyValue(objectClass);
+
+            var itemOld = metadataKeyValue.FirstOrDefault(x => x.Name == name);
+            var itemNew = objectClassKeyValue.FirstOrDefault(x => x.Name == name);
+            if (itemOld != null || itemNew != null)
+            {
+                //replace Content value
+                itemOld.Content = itemNew.Content;
+                //delete old item
+                objectClassKeyValue.Remove(itemNew);
+            }
+            result.AddRange(metadataKeyValue);
+            result.AddRange(objectClassKeyValue);
+
+            return result;
+        }
         private static IList<OGKeyValue> GetKeyValue<T>(IOGType<T> data)
         {
             var result = new List<OGKeyValue>();
