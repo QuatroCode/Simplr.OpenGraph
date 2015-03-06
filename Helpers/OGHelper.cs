@@ -4,6 +4,12 @@ namespace Simplr.OpenGraph.Helpers
 {
     public static class OGHelper
     {
+        public static string AddDotInsteadOfUnderscoreAndAddUnderscoreBeforeUpperCase(string enumValue)
+        {
+            var changeUnderscoreToDot = enumValue.AddDotInsteadOfUnderscore();
+            var addUnderscoreBeforeUpperCase = changeUnderscoreToDot.AddSymbolBeforeUpperCase('_');
+            return addUnderscoreBeforeUpperCase.ToLower();
+        }
         private static string AddSymbolBeforeUpperCase(this string text, char symbol)
         {
             if (string.IsNullOrWhiteSpace(text))
