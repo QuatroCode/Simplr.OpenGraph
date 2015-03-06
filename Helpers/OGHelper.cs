@@ -1,6 +1,7 @@
 ﻿using Simplr.OpenGraph.Contracts;
 using Simplr.OpenGraph.Enums;
 using Simplr.OpenGraph.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,40 @@ namespace Simplr.OpenGraph.Helpers
 {
     public static class OGHelper
     {
+        public static string GetMetadata<T>(IOGType<T> metadata)
+        {
+            if (metadata == null)
+            {
+                return null;
+            }
+            var metadataKeyValue = GetKeyValue(metadata);
+            return SetMetaProperties(metadataKeyValue);
+        }
+        public static string GetMetadata<T>(OGMetadata metadata, IOGType<T> objectClass)
+        {
+            if (metadata == null)
+            {
+                throw new ArgumentNullException("metadata");
+            }
+            if (metadata.Title == null)
+            {
+                throw new ArgumentNullException("Title");
+            }
+            if (metadata.Url == null)
+            {
+                throw new ArgumentNullException("Url");
+            }
+            if (metadata.Image == null)
+            {
+                throw new ArgumentNullException("Image");
+            }
+            string result = null;
+            result += string.Format("<title>{0}</title>", metadata.Title);
+            result += SetMetaProperties(ReplaceValue(metadata, objectClass));
+
+            return result;
+        }
+
         private static IList<OGKeyValue> ReplaceValue<T>(OGMetadata metadata, IOGType<T> objectClass, string name = "type")
         {
             var result = new List<OGKeyValue>();
