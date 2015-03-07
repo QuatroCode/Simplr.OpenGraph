@@ -2,7 +2,7 @@
 
 OpenGraph tags generator for .NET. Built according to [OpenGraph spec found here](http://ogp.me/)
 
-# Usage
+## Usage
 
 Helper class that generates tags for OpenGraph has two main methods:
 OGHelper.GetMetadata<T>(IOGType<T> metadata)
@@ -10,7 +10,7 @@ OGHelper.GetMetadata<T>(OGMetadata metadata, IOGType<T> contentMetadata)
 
 Both return string filled with generated meta tags.
 
-# Example
+## Example
 
 1. Create page defining metadata object:
 
