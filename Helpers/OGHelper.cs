@@ -225,7 +225,7 @@ namespace Simplr.OpenGraph.Helpers
 		/// </summary>
 		/// <param name="text">Text which has to be changed</param>
 		/// <returns>Changed string</returns>
-		public static string ChangeText(string text)
+		private static string ChangeText(string text)
 		{
 			var changeUnderscoreToDot = text.AddDotInsteadOfUnderscore();
 			var addUnderscoreBeforeUpperCase = changeUnderscoreToDot.AddSymbolBeforeUpperCase('_');
