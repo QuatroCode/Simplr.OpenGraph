@@ -51,7 +51,7 @@
     <Compile Include="Models\Music\OGSong.cs" />
     <Compile Include="Models\OGArticle.cs" />
     <Compile Include="Models\OGAudio.cs" />
-    <Compile Include="Models\OGBasicMetadata.cs" />
+    <Compile Include="Models\OGMetadata.cs" />
     <Compile Include="Models\OGBook.cs" />
     <Compile Include="Models\OGImage.cs" />
     <Compile Include="Models\OGKeyValue.cs" />
