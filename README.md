@@ -16,22 +16,22 @@ Both return string with generated meta tags.
 
 1. Create page defining metadata object:
 
-```C#
-var metadata = new OGMetadata() {
-    Title = "My cool page title",
-    Url = new Uri("https://mypage.buzz"),
-    Description = "My page that has a cool title and even cooler site name!",
-    SiteName = "Cool page"
-};
-```
+    ```C#
+    var metadata = new OGMetadata() {
+        Title = "My cool page title",
+        Url = new Uri("https://mypage.buzz"),
+        Description = "My page that has a cool title and even cooler site name!",
+        SiteName = "Cool page"
+    };
+    ```
 
-Objects can be filled fully or partially.
+    Objects can be filled fully or partially.
 
 2. Call helper method to generate meta tags
 
-```C#
-string tags = OGHelper.GetMetadata(metadata);
-```
+    ```C#
+    string tags = OGHelper.GetMetadata(metadata);
+    ```
 
 3. Add meta tags to your HTML -> HEAD website
 
