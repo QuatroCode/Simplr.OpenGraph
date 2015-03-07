@@ -10,7 +10,7 @@ OGHelper.GetMetadata<T>(IOGType<T> metadata)
 OGHelper.GetMetadata<T>(OGMetadata metadata, IOGType<T> contentMetadata)
 ```
 
-Both return string filled with generated meta tags.
+Both return string with generated meta tags.
 
 ## Example
 
