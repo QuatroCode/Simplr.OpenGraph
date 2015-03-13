@@ -2,6 +2,14 @@
 
 OpenGraph tags generator for .NET. Built according to [OpenGraph spec found here](http://ogp.me/)
 
+## NuGet package
+
+You can find [NuGet package here](https://www.nuget.org/packages/Simplr.OpenGraph/) or install it via package manager console:
+
+```
+Install-Package Simplr.OpenGraph
+```
+
 ## Usage
 
 Helper class that generates tags for OpenGraph has two main methods:
